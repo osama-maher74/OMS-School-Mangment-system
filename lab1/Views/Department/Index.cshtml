@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<Departments>
+
+@{
+    ViewData["Title"] = "Department List Index";
+}
+
+<h1 style="text-align: center; align-content:center ">Department List</h1>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+             
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model?.Count() == 0)
+        {
+            <tr>
+                <td colspan="4" class="text-center">No departments available.</td>
+            </tr>
+        }
+        else { 
+        foreach (var department in Model)
+        {
+            <tr style=" text-align:center; ">
+                <td>@department.DeptID</td>
+                <td>@department.DeptName</td>
+                <td>@department.Capacity</td>
+                <td>
+                        <a class="btn btn-success" asp-action="Details" asp-controller="Department" asp-route-id="@department.DeptID">Details</a>
+						<a class="btn btn-primary" asp-action="edit" asp-controller="Department" asp-route-id="@department.DeptID">Edit</a>
+						<a class="btn btn-danger" asp-action="delete" asp-controller="Department" asp-route-id="@department.DeptID">Delete</a>
+						<a class="btn btn-secondary" asp-action="editcourses" asp-controller="Department" asp-route-id="@department.DeptID">Edit Courses</a>
+						<a class="btn btn-outline-warning" asp-action="ViewCourses" asp-controller="Department" asp-route-id="@department.DeptID">View Courses</a>
+
+                </td>
+            </tr>
+        }               
+        }
+    </tbody>
+</table>

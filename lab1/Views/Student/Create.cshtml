@@ -1,0 +1,35 @@
+﻿@using lab1.Models.ViewModel
+@model CreateStudentVM 
+@{
+    ViewData["Title"] = "Create";
+	SelectList deptSelectList = new SelectList(Model.Departments, "DeptID", "DeptName");
+}
+
+<h1>Create Student</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="student.Name"></label>
+        <span asp-validation-for="student.Name"></span> 
+        <input asp-for="student.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="student.Age"></label>
+		<span asp-validation-for="student.Age"></span>
+        <input asp-for="student.Age" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="student.Email"></label>
+		<span asp-validation-for="student.Email"></span>
+        <input asp-for="student.Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="student.DeptID"></label>
+		<span asp-validation-for="student.DeptID"></span>
+        <select asp-for="student.DeptID" class="form-control" asp-items="deptSelectList"></select>
+    </div>
+    <div style="align-content: center; display: flex; justify-content: center; align-items: center; margin:20px;">
+
+    <button type="submit" class="btn btn-primary " style="text-align: center; align-content:center ;align-items: center; align-self: center;"> Create</button>
+    </div>
+</form>

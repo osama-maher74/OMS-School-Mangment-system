@@ -1,0 +1,33 @@
+﻿@using lab1.Models.ViewModel
+@model GetEditDeptCoursesVM
+@{
+    ViewData["Title"] = "editcourses";
+}
+
+<h1>Edit @Model.departments.DeptName courses</h1>
+
+<form  method="post">
+
+    <input type="hidden" name="deptid" value="@Model.departments.DeptID" ></input>
+    <p> Courses in @Model.departments.DeptName Department </p>
+    <select multiple name="coursestoremove" class="form-select">
+        @foreach(var item in @Model.CoursesAllReadyInDept )
+        {
+            
+        <option value="@item.Id">@item.CrsName</option>
+        }
+</select>
+<br />
+    <p> Courses Not in @Model.departments.DeptName Department</p>
+<select multiple name="corsestoadd" class="form-select" >
+        @foreach (var item in @Model.CoursesNotInDept)
+        {
+
+            <option value="@item.Id">@item.CrsName</option>
+        }
+</select>
+
+<input type="submit"  value="update" />
+
+</form>
+

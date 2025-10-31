@@ -1,0 +1,147 @@
+﻿@* @using lab1.Models.ViewModel
+@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+ *@
+@* @using lab1.Models.ViewModel
+@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>@ViewData["Title"]</h1>
+        <hr />
+
+        <form asp-controller="Account" asp-action="Register" method="post">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3" style="text-align:center;">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        // إضافة ملفات التحقق من جهة العميل (Client-side validation)
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} *@
+@using lab1.Models.ViewModel
+@model RegisterVM
+@{
+    ViewData["Title"] = "Create Account"; // Slightly more engaging title
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Ensure layout is used
+}
+
+<style>
+    /* Define the ITI Brand Color */
+    :root {
+        --iti-brand-red: #CC0000;
+    }
+
+    /* Custom class for the solid red button */
+    .btn-brand {
+        background-color: var(--iti-brand-red);
+        border-color: var(--iti-brand-red);
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-brand:hover {
+            background-color: #A30000; /* Darker red on hover */
+            border-color: #A30000;
+        }
+
+    /* Custom class for the solid red background element (e.g., card header) */
+    .bg-brand {
+        background-color: var(--iti-brand-red) !important;
+    }
+
+    .text-brand {
+        color: var(--iti-brand-red) !important;
+    }
+</style>
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg p-4">
+
+            <div class="card-header text-center bg-brand text-white">
+                <h3 class="mb-0"> @ViewData["Title"]</h3>
+            </div>
+
+            <div class="card-body">
+                <form asp-controller="Account" asp-action="Register" method="post">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3 text-center small"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="UserName" class="form-label"></label>
+                        <input asp-for="UserName" class="form-control" placeholder="Choose a username" />
+                        <span asp-validation-for="UserName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-brand btn-lg shadow-sm">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-footer text-center">
+                <small class="text-muted">
+                    Already have an account?
+                    <a asp-controller="Account" asp-action="Login" class="text-brand fw-bold">Login here</a>
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        // Ensure client-side validation is included
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

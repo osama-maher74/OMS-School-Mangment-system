@@ -1,0 +1,72 @@
+﻿@using lab1.Models.ViewModel
+@model IEnumerable<UsersVM>
+@{
+    ViewData["Title"] = "Users List";
+}
+
+<div class="container mt-4">
+    <div style="text-align:center;">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+    </div>
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    <label >Id</label>
+                </th>
+                <th>
+                    <label >Email</label>
+                </th>
+                <th>
+                    <label >UserName</label>
+                </th>
+                <th>
+                    <label>Roles</label>
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <div style="text-align:center;">
+
+                    <tr>
+                        <td data-label="Id">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td data-label="Email ">
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td data-label=" UserName">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td data-label="Roles">
+                            @string.Join(", ", item.Roles)
+                        </td>
+                        
+                        <td data-label=" Actions" style="text-align:center;">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a> |
+
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                        
+                        
+                    </tr>
+                    </div>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center text-muted">The Users List Is Empty</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

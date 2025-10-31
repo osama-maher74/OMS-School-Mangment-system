@@ -1,0 +1,29 @@
+﻿@using lab1.Models.ViewModel
+@model StdDetailsVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<h3>Students in this Department</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.DeptStd)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>

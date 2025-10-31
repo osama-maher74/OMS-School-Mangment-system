@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@{
+    // Assumes the layout is defined in _Layout.cshtml
+    ViewData["Title"] = "OMS: Master the Future of Tech";
+}
+
+<div class="container text-center py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-10">
+
+            <!-- 1. Main Headline (H1) -->
+            <h1 class="display-3 fw-bold mb-4" style="color: #CC0000;">
+                Accelerate Your Career. Master the Future of Tech.
+            </h1>
+
+            <!-- 2. Sub-Headline / Value Proposition -->
+            <p class="lead text-muted mb-5">
+                Welcome to the premier platform for IT talent development. Gain exclusive access to
+                <strong>cutting-edge training programs</strong>, expert mentorship, and a thriving community of peers and industry leaders.
+                Whether you're upskilling in **AI, Cybersecurity, or Software Development**, your path to professional excellence begins here.
+            </p>
+
+            <!-- 3. Call-to-Action (CTA) Section -->
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+
+                <!-- Button 2: Sign Up (Primary Action for New Users) -->
+                <div class="p-2">
+                    <h5 class="fw-semibold">Ready to Get Started?</h5>
+                    <p class="text-secondary small">
+                        Join the ITI community and begin your journey toward certification and career growth.
+                    </p>
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-lg btn-danger shadow-lg px-4 me-sm-3" style="background-color: #CC0000; border-color: #CC0000;">
+                        Sign Up
+                    </a>
+                </div>
+
+                <!-- Vertical Divider (optional, visually separates CTAs) -->
+                <div class="vr d-none d-sm-block" style="height: 100px;"></div>
+
+                <!-- Button 1: Login (Secondary Action for Returning Users) -->
+                <div class="p-2">
+                    <h5 class="fw-semibold">Have an Account?</h5>
+                    <p class="text-secondary small">
+                        Access your courses, certificates, and personalized learning dashboard.
+                    </p>
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-lg btn-outline-danger px-4">
+                        Login
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr class="my-5">
+
+<!-- Optional: Add a small section highlighting the core features -->
+<div class="row text-center pt-3">
+    <div class="col-md-4">
+        <h3 class="fw-bold text-dark">Expert Mentorship</h3>
+        <p class="text-muted">Learn directly from top industry professionals.</p>
+    </div>
+    <div class="col-md-4">
+        <h3 class="fw-bold text-dark">Cutting-Edge Curriculum</h3>
+        <p class="text-muted">Programs updated for the latest technological demands.</p>
+    </div>
+    <div class="col-md-4">
+        <h3 class="fw-bold text-dark">Global Certification</h3>
+        <p class="text-muted">Achieve recognized qualifications to advance your career.</p>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@using lab1.Models.ViewModel
+@model StdDetailsVM
+@{
+    Layout = null;
+}
+
+@{
+    Student student = new Student();
+    student.Id = 1;
+    student.Name = "John Doe";
+    student.Age = 20;
+
+	int x = 10;
+    int y = 20;
+	y = x + y;
+
+	List<string> names = new List<string>();
+	names.Add("Alice");
+    names.Add("Bob");
+	names.Add("Charlie");
+    names.Add("Diana");
+    names.Add("Eve");
+	
+	
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <h1 align="center">@ViewData["Title"] </h1>
+    <ul>
+        @foreach (var name in names)
+    {
+        <li>@name</li>
+	}
+
+
+    <h1 class="alert-dark">
+        @student
+    </h1>
+
+    <table class=" align-content-center text-center w-100 table-hover table-active table-bordered ">
+    <thead>
+
+        <tr class="table-primary">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+				</tr>
+
+    </thead>
+        <tbody>
+
+            @if(Model.DeptStd?.Count == 0)
+            {
+                <tr>
+                    <td colspan="3">No students available</td>
+                </tr>
+			}
+            else
+            {
+            foreach (var s in Model.DeptStd)
+            {
+                <tr>
+                    <td>@s.Id</td>
+                    <td>@s.Name</td>
+                    <td>@s.Age</td>
+                </tr>
+		    }
+          }
+</table>
+
+
+
+</ul>
+
+
+</body>
+</html>

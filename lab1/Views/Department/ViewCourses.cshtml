@@ -1,0 +1,41 @@
+﻿@using lab1.Repo
+@model Departments
+@{
+    ViewData["Title"] = "ViewCourses";
+}
+
+<h1>View Courses In @Model.DeptName</h1>
+
+<table class="table table-active table-bordered table-responsive table-hover  table-striped"style="text-align:center;">
+    
+        <thead style="text-align:center;">
+
+      <th style="text-align:center;">
+            Courses in @Model.DeptName
+            </th>
+        </thead>
+        <tbody>
+    @foreach (var item in @Model.Courses)
+    {
+        <tr class="align-content-center">
+                <td style="text-align:center;">
+                <a asp-controller="department" asp-action="updatestudentdegree" asp-route-deptid="@Model.DeptID" asp-route-crsid="@item.Id" >@item.CrsName</a>
+            </td>
+        </tr>
+           
+
+        
+    }
+    
+        </tbody>
+</table>
+@* <ul class="list-group">
+    @foreach (var item in @Model.Courses)
+    {
+        
+    <li class="list-group-flush">   
+    <a>@item.CrsName</a>
+        
+    </li>
+    }
+</ul> *@

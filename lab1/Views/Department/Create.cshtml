@@ -1,0 +1,41 @@
+﻿@model Departments
+
+@{
+	ViewData["Title"] = "Create Department";
+}
+
+<h1 style="text-align: center; ">Add Department</h1>
+<div style="align-content: center ; align-items: center; display: flex; flex-direction: column;">
+
+<form  action="/department/Create" method="post">
+	@* <p style="margin-top: 20px; text-align:center;  ">ID</p>
+   <input type="number" name="DeptId" /><br /> *@
+   <table class="table " style="margin-top:100px;">
+    <tr>
+        <td> 
+			<label asp-for="DeptName">Department Name :</label>
+		</td>
+		<td>
+			<input asp-for="DeptName" /><br />
+		</td>
+    </tr>
+    <tr>
+        <td>
+			<label asp-for="Capacity">Capacity :</label>
+		</td>
+		<td>
+			<input asp-for="Capacity" /><br />
+		</td>
+    </tr>
+	<tr>
+
+		<td colspan="2" align="center">
+					<button type="submit" value="add" class="btn btn-primary " style="margin:20px;">Add Department</button>
+		</td>
+
+	</tr>
+
+</table>
+   
+</form>
+</div>

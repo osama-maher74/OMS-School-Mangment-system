@@ -1,0 +1,28 @@
+﻿@model Departments
+@{
+    ViewData["Title"] = "UpdateStudentDegree";
+}
+
+<h1>Update Student Degree in @ViewBag.course.CrsName</h1>
+
+<form  method="post">
+    
+    <input type="hidden" name="crsid" value="@ViewBag.course.Id" />
+    <table>
+    @foreach(var item in Model.Students)
+        {
+            
+        <tr>
+                <td><label>@item.Name</label> <input type="text" name="degree.@item.Id" value="" /> </td>
+    </tr>
+        }
+        <tr>
+            <td>
+
+                <input type="submit" value="update" >
+
+            </td>
+        </tr>
+</table>
+
+</form>
